@@ -267,10 +267,10 @@ export async function checkOut() {
       mode: "payment",
       line_items: lineItems,
       success_url:
-        "http://localhost:3000/payment/success",
+        process.env.NODE_ENV === "development" ? "http://localhost:3000/payment/success" : "https://sole-style-sigma.vercel.app/payment/success",
 
       cancel_url:
-        "http://localhost:3000/payment/cancel",
+        process.env.NODE_ENV === "development" ? "http://localhost:3000/bag" : "https://sole-style-sigma.vercel.app/bag",
       metadata: {
         userId: user.id,
       },

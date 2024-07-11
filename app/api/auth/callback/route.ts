@@ -30,6 +30,6 @@ export async function GET() {
         });
     }
     return NextResponse.redirect(
-        "http://localhost:3000"
+        process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://sole-style-sigma.vercel.app"
     );
 }

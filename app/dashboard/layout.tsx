@@ -24,12 +24,16 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   noStore();
-  const { getUser, getPermission } = getKindeServerSession();
-  const user = await getUser();
-  const permission = await getPermission("admin");
-  /*  if (!user && !permission?.isGranted) {
-    throw new Error("Unauthorized");
-  } */
+  const { isAuthenticated, getPermission } = getKindeServerSession();
+  const isLoggedIn = await isAuthenticated();
+  if (!isLoggedIn) {
+    redirect("/api/auth/login");
+  }
+
+  const requiredPermission = await getPermission("admin-pages");
+  if (!requiredPermission?.isGranted) {
+    redirect("/");
+  }
   return (
     <div className="flex w-full flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b">

@@ -22,7 +22,9 @@ export default function index({
       className={styles.project}
     >
       <h2>{title}</h2>
-      <p>Design & Development</p>
+      <p>
+        Unique and stylish
+      </p>
     </div>
   );
 }

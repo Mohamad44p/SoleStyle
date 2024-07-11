@@ -6,26 +6,27 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
 import Rounded from "@/common/RoundedButton";
+import Link from "next/link";
 
 const projects = [
   {
-    title: "C2 Montreal",
-    src: "intro.png",
+    title: "Jordan Sport",
+    src: "Men1.jpg",
     color: "#000000",
   },
   {
-    title: "Office Studio",
-    src: "miniques_lagoon.jpg",
+    title: "Nike Windrunner",
+    src: "Women1.jpg",
     color: "#8C8C8C",
   },
   {
-    title: "Locomotive",
-    src: "miscani_lake.jpeg",
+    title: "Nike Sportswear",
+    src: "women2.jpg",
     color: "#EFE8D3",
   },
   {
-    title: "Silencio",
-    src: "salar_de_atacama.jpg",
+    title: "Air Jordan Legacy 312 Low",
+    src: "Shoes1.jpg",
     color: "#706D63",
   },
 ];
@@ -127,7 +128,9 @@ export default function Home() {
         })}
       </div>
       <Rounded>
-        <p>More work</p>
+        <p>
+          <Link href="/products/all">More Products</Link>
+        </p>
       </Rounded>
       <>
         <motion.div
